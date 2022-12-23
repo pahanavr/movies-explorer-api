@@ -7,8 +7,9 @@ const {
   Joi,
   errors,
 } = require('celebrate');
+
 const {
-  PORT = 3000
+  PORT = 3000,
 } = process.env;
 
 const routerUsers = require('./routes/users');
@@ -73,5 +74,5 @@ app.use(errors());
 app.use(handleError);
 
 app.listen(PORT, () => {
-  console.log(`App listening on port ${PORT}`)
-})
+  console.log(`App listening on port ${PORT}`);
+});

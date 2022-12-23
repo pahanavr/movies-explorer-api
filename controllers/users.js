@@ -16,8 +16,8 @@ module.exports.login = (req, res, next) => {
   } = req.body;
 
   return User.findOne({
-      email
-    }).select('+password')
+    email,
+  }).select('+password')
     .then((user) => {
       if (!user) {
         return next(new BadAuth('Неправильные данные'));
@@ -31,11 +31,13 @@ module.exports.login = (req, res, next) => {
         });
     })
     .then((user) => {
-      const token = jwt.sign({
-          _id: user._id
+      const token = jwt.sign(
+        {
+          _id: user._id,
         },
-        'secret-key', {
-          expiresIn: '7d'
+        'secret-key',
+        {
+          expiresIn: '7d',
         },
       );
       res.cookie('jwt', token, {
@@ -43,7 +45,7 @@ module.exports.login = (req, res, next) => {
         httpOnly: true,
       });
       res.send({
-        token
+        token,
       });
     })
     .catch(() => next(new BadAuth('Неправильные данные')));

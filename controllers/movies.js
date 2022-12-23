@@ -29,19 +29,19 @@ module.exports.createMovie = (req, res, next) => {
     nameEN,
   } = req.body;
   Movie.create({
-      country,
-      director,
-      duration,
-      year,
-      description,
-      image,
-      trailerLink,
-      thumbnail,
-      owner: req.user._id,
-      movieId,
-      nameRU,
-      nameEN,
-    })
+    country,
+    director,
+    duration,
+    year,
+    description,
+    image,
+    trailerLink,
+    thumbnail,
+    owner: req.user._id,
+    movieId,
+    nameRU,
+    nameEN,
+  })
     .then((movie) => res.status(OK).send(movie))
     .catch((err) => {
       if (err.name === 'ValidationError') {

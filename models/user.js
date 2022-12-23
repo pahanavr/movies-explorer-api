@@ -8,19 +8,19 @@ const userSchema = new mongoose.Schema({
     unique: true,
     validate: {
       validator: (v) => isEmail(v),
-      },
     },
-    password: {
-      type: String,
-      required: true,
-      select: false,
-    },
-    name: {
-      type: String,
-      minlength: 2,
-      maxlength: 30,
-      default: 'Uknown Name',
-    },
-  });
+  },
+  password: {
+    type: String,
+    required: true,
+    select: false,
+  },
+  name: {
+    type: String,
+    minlength: 2,
+    maxlength: 30,
+    default: 'Uknown Name',
+  },
+});
 
 module.exports = mongoose.model('user', userSchema);

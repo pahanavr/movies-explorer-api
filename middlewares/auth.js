@@ -16,8 +16,7 @@ module.exports = (req, res, next) => {
   let payload;
 
   try {
-    payload = jwt.verify(token, 'secret-key')
-    console.log(payload)
+    payload = jwt.verify(token, 'secret-key');
   } catch (err) {
     return next(new BadAuth('Необходима авторизация'));
   }

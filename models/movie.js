@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const {
   regexLink,
   regexRuName,
-  regexEnName
+  regexEnName,
 } = require('../utils/constants');
 
 const movieSchema = new mongoose.Schema({
