@@ -4,8 +4,6 @@ const {
 } = require('celebrate');
 const {
   regexLink,
-  regexRuName,
-  regexEnName,
 } = require('../utils/constants');
 
 module.exports.createMovieValidation = celebrate({
@@ -19,8 +17,8 @@ module.exports.createMovieValidation = celebrate({
     trailerLink: Joi.string().pattern(regexLink).required(),
     thumbnail: Joi.string().pattern(regexLink).required(),
     movieId: Joi.number().required(),
-    nameRU: Joi.string().pattern(regexRuName).required(),
-    nameEN: Joi.string().pattern(regexEnName).required(),
+    nameRU: Joi.string().required(),
+    nameEN: Joi.string().required(),
   }),
 });
 
