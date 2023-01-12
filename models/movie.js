@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 const {
   regexLink,
-  regexRuName,
-  regexEnName,
 } = require('../utils/constants');
 
 const movieSchema = new mongoose.Schema({
@@ -59,16 +57,10 @@ const movieSchema = new mongoose.Schema({
   nameRU: {
     type: String,
     required: true,
-    validate: {
-      validator: (name) => regexRuName.test(name),
-    },
   },
   nameEN: {
     type: String,
     required: true,
-    validate: {
-      validator: (name) => regexEnName.test(name),
-    },
   },
 });
 
