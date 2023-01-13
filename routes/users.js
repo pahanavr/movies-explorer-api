@@ -1,3 +1,4 @@
+require('dotenv').config();
 const usersRouter = require('express').Router();
 const {
   getCurrentUser,

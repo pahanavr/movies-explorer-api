@@ -1,3 +1,4 @@
+require('dotenv').config();
 const routes = require('express').Router();
 const usersRoutes = require('./users');
 const moviesRoutes = require('./movies');
